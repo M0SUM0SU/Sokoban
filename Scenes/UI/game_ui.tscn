@@ -1,0 +1,175 @@
+[gd_scene load_steps=9 format=3 uid="uid://d68youslmwg4"]
+
+[ext_resource type="LabelSettings" uid="uid://ci05ycnd0k0bl" path="res://Scenes/UI/UITEXT.tres" id="1_3fiko"]
+[ext_resource type="Script" uid="uid://cbhhtwrqf6xjc" path="res://Scenes/UI/game_ui.gd" id="1_vo2tu"]
+[ext_resource type="Texture2D" uid="uid://tgqx1n4awmqo" path="res://assets/panel_beigeLight.png" id="3_5b8pf"]
+[ext_resource type="FontFile" uid="uid://bqrb5y8onkgm7" path="res://assets/LuckiestGuy-Regular.ttf" id="4_6w80a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lolt2"]
+font = ExtResource("4_6w80a")
+font_size = 64
+font_color = Color(0.67058825, 1, 1, 1)
+outline_size = 10
+outline_color = Color(6.738305e-07, 0.53071237, 0.5307124, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tig4k"]
+font = ExtResource("4_6w80a")
+font_size = 24
+font_color = Color(0.67058825, 1, 1, 1)
+outline_size = 10
+outline_color = Color(6.738305e-07, 0.53071237, 0.5307124, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6w80a"]
+font = ExtResource("4_6w80a")
+font_size = 24
+font_color = Color(0, 0.70564127, 0.7117136, 1)
+outline_size = 10
+outline_color = Color(9.1448425e-07, 0.4566604, 0.4566605, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_plf53"]
+font = ExtResource("4_6w80a")
+font_size = 86
+font_color = Color(0.9372549, 0.35686275, 0.40784314, 1)
+outline_size = 20
+outline_color = Color(0.47252703, 0.05734942, 0.02493096, 1)
+
+[node name="Game UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vo2tu")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="MC/VB/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Level:"
+label_settings = ExtResource("1_3fiko")
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="MC/VB/HBoxContainer"]
+layout_mode = 2
+text = "99"
+label_settings = ExtResource("1_3fiko")
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="MC/VB/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Moves:"
+label_settings = ExtResource("1_3fiko")
+vertical_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="MC/VB/HBoxContainer2"]
+layout_mode = 2
+text = "99"
+label_settings = ExtResource("1_3fiko")
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MC/VB"]
+layout_mode = 2
+
+[node name="Level" type="Label" parent="MC/VB/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Best:"
+label_settings = ExtResource("1_3fiko")
+vertical_alignment = 1
+
+[node name="BestLabel" type="Label" parent="MC/VB/HBoxContainer3"]
+layout_mode = 2
+text = "-"
+label_settings = ExtResource("1_3fiko")
+vertical_alignment = 1
+
+[node name="gameoverpanel" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -280.0
+offset_top = -180.0
+offset_right = 280.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5b8pf")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="gameoverpanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="gameoverpanel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="gameoverpanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete !"
+label_settings = SubResource("LabelSettings_lolt2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="gameoverpanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press ESC"
+label_settings = SubResource("LabelSettings_tig4k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Moves Label" type="VBoxContainer" parent="gameoverpanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+
+[node name="AmountOfMoves" type="Label" parent="gameoverpanel/MarginContainer/VBoxContainer/Moves Label"]
+layout_mode = 2
+text = "You took   XXX   moves"
+label_settings = SubResource("LabelSettings_6w80a")
+horizontal_alignment = 1
+
+[node name="NEWRECORD" type="Label" parent="gameoverpanel/MarginContainer/VBoxContainer/Moves Label"]
+visible = false
+layout_mode = 2
+text = "NEW RECORD!"
+label_settings = SubResource("LabelSettings_plf53")
+horizontal_alignment = 1
+vertical_alignment = 1

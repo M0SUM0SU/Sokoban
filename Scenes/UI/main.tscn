@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://raq82kupcri1"]
+
+[ext_resource type="Texture2D" uid="uid://cadygl5hgl35r" path="res://assets/Gray.png" id="1_37xw0"]
+[ext_resource type="Script" uid="uid://mtw8sat2pykp" path="res://Scenes/UI/main.gd" id="1_ereyx"]
+[ext_resource type="FontFile" uid="uid://bqrb5y8onkgm7" path="res://assets/LuckiestGuy-Regular.ttf" id="2_ereyx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wjop8"]
+font = ExtResource("2_ereyx")
+font_size = 96
+font_color = Color(0.8235294, 1, 1, 1)
+outline_size = 25
+outline_color = Color(0, 0.5616048, 0.5620418, 1)
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ereyx")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_37xw0")
+stretch_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SOKOBAN"
+label_settings = SubResource("LabelSettings_wjop8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 6
